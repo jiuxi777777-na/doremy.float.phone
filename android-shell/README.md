@@ -22,6 +22,8 @@
    - `float-shell-debug`：通常可以直接安装，适合测试；如果没有配置自己的密钥，它使用 GitHub Actions 本次运行生成的临时 debug 签名，不能保证后续构建仍可覆盖安装。
    - `float-shell-release`：只有配置好下面的个人签名密钥后，才会生成可用于长期分发的已签名 release APK。未配置时不要把它当作可安装的正式包。
 
+> ✅ **当前状态（2026-10-21）**：个人签名密钥已生成并配置完成，四个 Repository secrets（`SHELL_KEYSTORE_BASE64` / `SHELL_KEYSTORE_PASSWORD` / `SHELL_KEY_ALIAS` / `SHELL_KEY_PASSWORD`）均已设置。从本次提交起的构建中，debug 与 release APK 都使用固定个人签名，可互相覆盖安装。
+
 ## 配置自己的 APK 签名（推荐长期使用或分享 APK 时设置）
 
 **每个维护者都应使用自己保管的签名密钥。** 不要向别人索要或分享你的密钥，也不要把密钥文件、密码提交到 Git 仓库。Android 要覆盖更新已安装的应用，通常必须使用同一把签名密钥；密钥丢失后，旧应用可能无法直接升级，用户或许只能卸载重装（可能丢失本地数据）。
